@@ -5,12 +5,25 @@ const routes = require('./src/routes')
 const cors = require('cors');
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 dotenv.config()
 
 const app = express()
+  // const corsOptions: CorsOptions = {
+  //   origin: ['http://localhost:3000'],
+  //   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  //   allowedHeaders: ['Content-Type', 'Authorization'],
+  // };
+
+var corsOptions = {
+     origin: ['http://localhost:3000'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}
+app.use(cors(corsOptions));
 const port = process.env.PORT || 3001
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
 app.use(bodyParser.json());
