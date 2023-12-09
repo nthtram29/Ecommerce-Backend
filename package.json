@@ -22,7 +22,8 @@
     "nodemailer-plugin-inline-base64": "^2.1.1",
     "nodemon": "^3.0.1"
   },
-  "bin" : {
-    "execute" : "index.js"
-}
+  "script":{
+    "prestart": "chmod a+x node_modules/.bin/nodemon",
+    "start": "nodemon index.js",
+  }
 }
