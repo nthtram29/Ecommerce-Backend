@@ -5,7 +5,7 @@ const routes = require('./src/routes')
 const cors = require('cors');
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
-import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
+// import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 dotenv.config()
 
 const app = express()
