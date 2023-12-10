@@ -25,8 +25,7 @@ const authMiddlleware = (req, res, next) =>{
 }
 const authUserMiddlleware = (req, res, next) =>{
 
-    // const token = req.headers.token.split(' ')[1]
-    const token = req.headers.token
+    const token = req.headers.token.split(' ')[1]
     console.log('=================>' + token)
    
     const userId = req.params.id
