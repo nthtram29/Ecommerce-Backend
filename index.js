@@ -18,7 +18,9 @@ const app = express()
 var corsOptions = {
      origin: ['http://localhost:3000', 'https://ecommerce-frontend-phi-ten.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    // allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization','token'],
+
 }
 app.use(cors(corsOptions));
 const port = process.env.PORT || 3001
