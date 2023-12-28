@@ -64,6 +64,32 @@ const deletePosts = (id) => {
     })
 }
 
+const updatePosts = (id, data) => {
+    return new Promise(async (resolve, reject)=>{
+        try{
+            const checkPosts = await Posts.findOne({
+                _id: id
+            })
+            if(checkPosts === null){
+                resolve({
+                    status: 'OK',
+                    message: 'The posts is not defined'
+                })
+            }
+
+            const updatedPosts = await Posts.findByIdAndUpdate(id, data, {new: true})
+                resolve({
+                    status: 'OK',
+                    message: 'SUCCESS',
+                    data: updatedPosts
+                })
+        } catch(e){
+            reject(e)
+        }
+
+    })
+}
+
 const deleteManyPosts = (ids) => {
     return new Promise(async (resolve, reject)=>{
         try{
@@ -167,5 +193,5 @@ module.exports = {
  deletePosts,
  getAllPosts,
  deleteManyPosts,
-
+ updatePosts
 }

@@ -22,7 +22,26 @@ const createPosts = async(req, res) =>{
     }
 }
 
-
+const updatePosts = async(req, res) =>{
+    try{
+      const postsId = req.params.id 
+      const data = req.body 
+      if(!postsId){
+        return res.status(200).json({
+            status: 'ERR',
+            message: 'The postsId is required'
+        })
+      }
+     
+      const response = await PostsService.updatePosts(postsId, data)
+      return res.status(200).json(response)
+    }
+    catch(e){
+        return res.status(404).json({
+            message: e
+        })
+    }
+}
 
 const deletePosts = async(req, res) =>{
     try{
@@ -105,5 +124,5 @@ module.exports ={
    deletePosts,
    getAllPosts,
    deleteMany,
-   
+   updatePosts
 }

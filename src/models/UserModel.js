@@ -4,12 +4,10 @@ const userSchema = new mongoose.Schema(
         name: {type: String},
         email: {type: String, required: true, unique: true},
         password: {type: String, required: true},
-        // confirmPassword :{type: String, required: true},
         isAdmin: {type: Boolean, default: false, required: true},
         phone: {type: String},
         address: {type: String},
-        avatar: {type: String},
-        revenue: {type:  String}
+        avatar: {type: String}
     },
     {
         timestamps: true

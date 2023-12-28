@@ -11,7 +11,6 @@ const productSchema = new mongoose.Schema(
       description: {type: String},
       discount: {type: Number, default: 0},
       selled: {type: Number},
-      revenue: {type: Number},
     },
     {
         timestamps: true,
